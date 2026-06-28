@@ -1,5 +1,16 @@
 """現在共有しているファイルの一覧を取得する。"""
+import argparse
 
+
+def add_list_parser(subparsers) -> None:
+    """``share list`` サブコマンドを登録する."""
+    parser = subparsers.add_parser("list", help="アップロードされたファイルの一覧を取得する")
+    parser.set_defaults(func=cmd_list)
+
+def cmd_list(args) -> int:
+    """``share list`` コマンドのハンドラ."""
+    # TODO: Dropbox インスタンスの取得と共有リンクの一覧表示の実装
+    return 0
 
 def list_shared_links(dbx) -> list[dict]:
     """Dropbox の共有リンクを全件返す。
